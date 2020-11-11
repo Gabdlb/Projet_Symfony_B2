@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dépenses entre amis{% endblock %}
+
+{% block body %}
+    <h1>Liste des personnes</h1>
+    <table class="table">
+        <tr>
+            <th>Nom</th>
+            <th>A payer</th>
+            <th>AReste a payer</th>
+            <th>Doit recevoir</th>
+        </tr>
+
+        {% for p in personnes %}
+            <tr>
+                <td>{{ p.nom }}</td>
+                <td>{{ p.apayer }}</td>
+                <td>{{ p.dette }}</td>
+                <td>{{ p.arecevoir }}</td>
+                <td>
+
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}
