@@ -8,9 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MenuController extends AbstractController
 {
-    /**
-     * @Route("", name="menu")
-     */
+
     public function index(): Response
     {
         return $this->render('menu/_menu.html.twig', [
