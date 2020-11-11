@@ -32,6 +32,11 @@ class Personne
      */
     private $arecevoir;
 
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $apayer;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class Personne
     public function setArecevoir(float $arecevoir): self
     {
         $this->arecevoir = $arecevoir;
+
+        return $this;
+    }
+
+    public function getApayer(): ?float
+    {
+        return $this->apayer;
+    }
+
+    public function setApayer(float $apayer): self
+    {
+        $this->apayer = $apayer;
 
         return $this;
     }
