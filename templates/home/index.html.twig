@@ -9,4 +9,30 @@
 
     <h2>Bienvenue sur l'application qui va permettre de gérer les dépenses entre amis</h2>
     <h3>Groupe B2C1: Hugo Divet, Gabriel de la Biche et Théophile Farvacque</h3>
+    <table>
+        <tr>
+            <td>Nom</td>
+            <td>A payer</td>
+            <td>Reste à payer</td>
+            <td>Doit recevoir</td>
+            <td>Actions</td>
+        </tr>
+        {% if personne is defined %}
+        {% for p in personne %}
+            <tr>
+                <td>{{ p.nom }}</td>
+                <td>{{ p.apayer }}</td>
+                <td>{{ p.dette }}</td>
+                <td>{{ p.arecevoir }}</td>
+                <td>
+                    <a class="btn btn-sm btn-warning" href="{{ path("details",{"id":p.id}) }}">Voir en détails</a>
+                    <a class="btn btn-sm btn-primary" href="{{ path("personne_modifier",{"id":p.id}) }}">Modifier</a>
+                    <a class="btn btn-sm btn-danger" href="{{ path("personne_supprimer",{"id":p.id}) }}"><i class="fa fa-trash"></i></a>
+                </td>
+            </tr>
+        {% endfor %}
+        {% else %}
+            Sauce.
+        {% endif %}
+    </table>
 {% endblock %}
