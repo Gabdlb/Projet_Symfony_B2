@@ -24,7 +24,7 @@ class PersonnesController extends AbstractController
         //je lis la BDD
         $personnes=$repository->findALL();
 
-        return $this->render('personnes/_personnes.html.twig', [
+        return $this->render('personnes/index.html.twig', [
             'personnes' => $personnes,
         ]);
     }
