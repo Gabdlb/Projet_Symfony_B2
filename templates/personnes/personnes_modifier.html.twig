@@ -1,0 +1,8 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h1>Modifier une personnes</h1>
+    {{ form(formulaire) }}
+
+    <a href="{{  path("") }}"><button type="button" class="btn btn-danger">&lt; retour à la liste</button></a>
+{% endblock %}
