@@ -16,16 +16,16 @@
         {% for p in personnes %}
             <tr>
                 <td>{{ p.nom }}</td>
-                <td>{{ p.apayer }}</td>
                 <td>{{ p.dette }}</td>
+                <td>{{ p.apayer }}</td>
                 <td>{{ p.arecevoir }}</td>
                 <td>
-                    <a class="btn btn-sm btn-warning" onclick="return confirm('Etes vous sûr?')" href="">Voir en détails</a>
-                    <a class="btn btn-sm btn-primary" href="">Modifier</a>
-                    <a class="btn btn-sm btn-danger" href=""><i class="fa fa-trash"></i></a>
+                    <a class="btn btn-sm btn-warning" href="">Voir en détails</a>
+                    <a class="btn btn-sm btn-primary" href="{{ path("personnes_modifier",{"id":p.id}) }}">Modifier</a>
+                    <a class="btn btn-sm btn-danger" href="{{ path("personnes_supprimer",{"id":p.id}) }}"><i class="fa fa-trash"></i></a>
                 </td>
             </tr>
         {% endfor %}
     </table>
-    <a class="btn btn-sm btn-primary" href="">Ajouter une personne <i class="fas fa-plus-circle"></i></a>
+    <a class="btn btn-sm btn-primary" href="{{ path("personnes_ajouter")}}">Ajouter une personne <i class="fas fa-plus-circle"></i></a>
 {% endblock %}

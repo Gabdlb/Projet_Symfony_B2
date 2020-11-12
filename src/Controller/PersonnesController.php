@@ -61,7 +61,7 @@ class PersonnesController extends AbstractController
     }
 
     /**
-     * @Route("personnes/modifier/{id}",name="chatons_modifier")
+     * @Route("personnes/modifier/{id}",name="personnes_modifier")
      */
     public function modifier($id, Request $request)
     {

@@ -8,8 +8,9 @@
         <tr>
             <th>Nom</th>
             <th>A payer</th>
-            <th>AReste a payer</th>
+            <th>Reste a payer</th>
             <th>Doit recevoir</th>
+            <th>Actions</th>
         </tr>
 
         {% for p in personnes %}
@@ -19,10 +20,12 @@
                 <td>{{ p.dette }}</td>
                 <td>{{ p.arecevoir }}</td>
                 <td>
-
+                    <a class="btn btn-sm btn-warning" onclick="return confirm('Etes vous sûr?')" href="">Voir en détails</a>
+                    <a class="btn btn-sm btn-primary" href="">Modifier</a>
+                    <a class="btn btn-sm btn-danger" href=""><i class="fa fa-trash"></i></a>
                 </td>
             </tr>
         {% endfor %}
     </table>
-
+    <a class="btn btn-sm btn-primary" href="">Ajouter une personne <i class="fas fa-plus-circle"></i></a>
 {% endblock %}
