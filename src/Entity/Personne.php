@@ -27,16 +27,6 @@ class Personne
      */
     private $depense;
 
-    /**
-     * @ORM\Column(type="float")
-     */
-    private $dette;
-
-    /**
-     * @ORM\Column(type="float")
-     */
-    private $recu;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -62,30 +52,6 @@ class Personne
     public function setDepense(float $depense): self
     {
         $this->depense = $depense;
-
-        return $this;
-    }
-
-    public function getDette(): ?float
-    {
-        return $this->dette;
-    }
-
-    public function setDette(float $dette): self
-    {
-        $this->dette = $dette;
-
-        return $this;
-    }
-
-    public function getRecu(): ?float
-    {
-        return $this->recu;
-    }
-
-    public function setRecu(float $recu): self
-    {
-        $this->recu = $recu;
 
         return $this;
     }

@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class PersonnesController extends AbstractController
 {
     /**
-     * @Route("/personnes", name="personnes")
+     * @Route("/", name="personnes")
      */
     public function index(): Response
     {
@@ -85,7 +85,7 @@ class PersonnesController extends AbstractController
             $em->flush();
 
             //
-            return $this->redirectToRoute("personnes",["idPersonnes"=>$personnes->gePersonne()->getId()]);
+            return $this->redirectToRoute("personnes",["idPersonnes"=>$personnes->getId()]);
         }
 
         return $this->render("personnes/personnes_modifier.html.twig", [
@@ -118,7 +118,7 @@ class PersonnesController extends AbstractController
             $em->flush();
 
 
-            return $this->redirectToRoute("categories");
+            return $this->redirectToRoute("personnes");
         }
 
         return $this->render("personnes/personnes_supprimer.html.twig", [
