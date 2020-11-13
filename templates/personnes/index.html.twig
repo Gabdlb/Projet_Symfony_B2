@@ -27,11 +27,11 @@
             {% set transaction = p.depense - moyenne %}
             <tr>
                 <td>{{ p.nom }}</td>
-                <td>a dépensé {{ p.depense }} €</td>
+                <td> a dépensé {{ p.depense }} €</td>
                 {% if transaction > 0 %}
-                <td>doit recevoir {{ transaction }} €</td>
+                <td> doit recevoir {{ transaction }} €</td>
                 {% else %}
-                    <td>doit rembourser {{ transaction|abs }} €</td>
+                    <td> doit rembourser {{ transaction|abs }} €</td>
                 {% endif %}
                 <td>
                     <a class="btn btn-sm btn-primary" href="{{ path("personnes_modifier",{"id":p.id}) }}">Modifier</a>
