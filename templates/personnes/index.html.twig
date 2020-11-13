@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dépenses entre amis{% endblock %}
+
+{% block body %}
+    <br>
+    {% set total = 0 %}
+    {% set moyenne = 0 %}
+    {% set personne = 0 %}
+    {% for p in personnes %}
+        {% set total = total + p.depense %}
+        {% set personne = personne + 1 %}
+    {% endfor %}
+    {% if personne > 0 %}
+        {% set moyenne=total/personne %}
+    {% endif %}
+    <h1>Liste des personnes</h1>
+    <table class="table">
+        <tr>
+            <th>Nom</th>
+            <th>Depense</th>
+            <th>Les transactions à effectuer</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for p in personnes %}
+            {% set transaction = p.depense - moyenne %}
+            <tr>
+                <td>{{ p.nom }}</td>
+                <td> a dépensé {{ p.depense }} €</td>
+                {% if transaction > 0 %}
+                <td> doit recevoir {{ transaction }} €</td>
+                {% else %}
+                    <td> doit rembourser {{ transaction|abs }} €</td>
+                {% endif %}
+                <td>
+                    <a class="btn btn-sm btn-primary" href="{{ path("personnes_modifier",{"id":p.id}) }}">Modifier</a>
+                    <a class="btn btn-sm btn-danger" href="{{ path("personnes_supprimer",{"id":p.id}) }}"><i class="fa fa-trash"></i></a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% if total > 0 %}
+    <div> Au total, {{ total }} € ont été dépensés pour rendre cette soirée possible.</div>
+    {% else %}
+    <div> Ajouter des participants pour commencer.</div>
+    {% endif %}
+    <br>
+    <a class="btn btn-sm btn-primary" href="{{ path("personnes_ajouter")}}">Ajouter un participant <i class="fas fa-plus-circle"></i></a>
+{% endblock %}

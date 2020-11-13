@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dépenses entre amis{% endblock %}
+
+{% block body %}
+    <h1>
+        Faites vos comptes ! <i class="far fa-money-check-edit-alt"></i>
+    </h1>
+
+    <h2>Bienvenue sur l'application qui va permettre de gérer les dépenses entre amis</h2>
+    <h3>Groupe B2C1: Hugo Divet, Gabriel de la Biche et Théophile Farvacque</h3>
+
+    <a class="btn btn-sm btn-primary" href="{{ path("personnes") }}">ET C'EST PARTI!</a>
+
+{% endblock %}
