@@ -25,17 +25,17 @@ class Personne
     /**
      * @ORM\Column(type="float")
      */
+    private $depense;
+
+    /**
+     * @ORM\Column(type="float")
+     */
     private $dette;
 
     /**
      * @ORM\Column(type="float")
      */
-    private $arecevoir;
-
-    /**
-     * @ORM\Column(type="float")
-     */
-    private $apayer;
+    private $recu;
 
     public function getId(): ?int
     {
@@ -54,6 +54,18 @@ class Personne
         return $this;
     }
 
+    public function getDepense(): ?float
+    {
+        return $this->depense;
+    }
+
+    public function setDepense(float $depense): self
+    {
+        $this->depense = $depense;
+
+        return $this;
+    }
+
     public function getDette(): ?float
     {
         return $this->dette;
@@ -66,26 +78,14 @@ class Personne
         return $this;
     }
 
-    public function getArecevoir(): ?float
+    public function getRecu(): ?float
     {
-        return $this->arecevoir;
+        return $this->recu;
     }
 
-    public function setArecevoir(float $arecevoir): self
+    public function setRecu(float $recu): self
     {
-        $this->arecevoir = $arecevoir;
-
-        return $this;
-    }
-
-    public function getApayer(): ?float
-    {
-        return $this->apayer;
-    }
-
-    public function setApayer(float $apayer): self
-    {
-        $this->apayer = $apayer;
+        $this->recu = $recu;
 
         return $this;
     }

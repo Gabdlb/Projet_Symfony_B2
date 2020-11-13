@@ -7,18 +7,18 @@
     <table class="table">
         <tr>
             <th>Nom</th>
-            <th>A payer</th>
-            <th>Reste a payer</th>
-            <th>Doit recevoir</th>
+            <th>Depense</th>
+            <th>Ce qu'il doit rembourser</th>
+            <th>Ce qu'il doit recevoir</th>
             <th>Actions</th>
         </tr>
 
         {% for p in personnes %}
             <tr>
                 <td>{{ p.nom }}</td>
+                <td>{{ p.depense }}</td>
                 <td>{{ p.dette }}</td>
-                <td>{{ p.apayer }}</td>
-                <td>{{ p.arecevoir }}</td>
+                <td>{{ p.recu }}</td>
                 <td>
                     <a class="btn btn-sm btn-warning" href="">Voir en détails</a>
                     <a class="btn btn-sm btn-primary" href="{{ path("personnes_modifier",{"id":p.id}) }}">Modifier</a>
